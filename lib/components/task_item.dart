@@ -3,11 +3,11 @@ import 'package:todo/constants.dart';
 
 class TaskItem extends StatelessWidget {
   TaskItem(
-      {this.text, this.isComplete, this.toggleTask, this.longPressCallBack});
+      {required this.text, required this.isComplete, this.toggleTask, this.longPressCallBack});
   final String text;
   final bool isComplete;
-  final Function toggleTask;
-  final Function longPressCallBack;
+  final void Function(dynamic)? toggleTask;
+  final void Function()? longPressCallBack;
 
   @override
   Widget build(BuildContext context) {

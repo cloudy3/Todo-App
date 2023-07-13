@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_icons_null_safety/flutter_icons_null_safety.dart';
 import 'package:provider/provider.dart';
-import 'file:///C:/Users/JF/AndroidStudioProjects/todo/lib/screens/add_task_screen.dart';
+import './add_task_screen.dart';
 import 'package:todo/constants.dart';
 import 'package:todo/components/custom_button.dart';
 import 'package:todo/components/task_list.dart';
@@ -17,7 +16,7 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_icons_null_safety/flutter_icons_null_safety.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/components/custom_button.dart';
 import 'package:todo/models/task_data.dart';
 
-class AddTaskScreen extends StatelessWidget {
+class AddTaskScreen extends StatefulWidget {
+  @override
+  State<AddTaskScreen> createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
-    String taskTitle = "";
     return Container(
       color: Colors.deepOrange.shade800,
       child: Row(
@@ -61,9 +73,7 @@ class AddTaskScreen extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Enter your Task',
                               ),
-                              onChanged: (newValue) {
-                                taskTitle = newValue;
-                              },
+                              controller: _controller,
                             ),
                           ),
                         ),
@@ -71,7 +81,7 @@ class AddTaskScreen extends StatelessWidget {
                           icon: FlutterIcons.add_to_list_ent,
                           ontap: () {
                             Provider.of<TaskData>(context, listen: false)
-                                .addTask(taskTitle);
+                                .addTask(_controller.text);
                             Navigator.pop(context);
                           },
                         ),
